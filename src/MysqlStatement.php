@@ -170,6 +170,14 @@ class MysqlStatement
         return $result_set;
     }
 
+    /**
+     * This method allows use mysql_pdo driver on Doctrine ORM > 2.6.1 < 3
+     */
+    public function setFetchMode($fetchMode, $arg2 = null, $arg3 = null) : void
+    {
+
+    }
+
     public function fetch(
         int $fetch_style = PDO::FETCH_BOTH,
         int $cursor_orientation = PDO::FETCH_ORI_NEXT,
