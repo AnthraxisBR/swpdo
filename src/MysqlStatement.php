@@ -83,13 +83,14 @@ class MysqlStatement
         $this->bindMap = [];
     }
 
-    public function execute(array $input_parameters = [], ?float $timeout = null)
+    public function execute($input_parameters = null, ?float $timeout = null)
     {
-        if (!empty($input_parameters)) {
+        if (!is_null($input_parameters)) {
             foreach ($input_parameters as $key => $value) {
                 $this->bindParam($key, $value);
             }
         }
+
         $input_parameters = [];
         if (!empty($this->statement->bindKeyMap)) {
             foreach ($this->statement->bindKeyMap as $name_key => $num_key) {
@@ -173,7 +174,15 @@ class MysqlStatement
     /**
      * This method allows use mysql_pdo driver on Doctrine ORM > 2.6.1 < 3
      */
-    public function setFetchMode($fetchMode, $arg2 = null, $arg3 = null) : void
+    public function setFetchMode($fetchMode, $arg2 = null, $arg3 = null)
+    {
+
+    }
+
+    /**
+     * This method allows use mysql_pdo driver on Doctrine ORM > 2.6.1 < 3
+     */
+    public function closeCursor()
     {
 
     }

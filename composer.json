@@ -1,5 +1,6 @@
 {
-  "name": "swlib/swpdo",
+  "name": "swlib/swpdo-two",
+  "version": "1.0.1",
   "type": "library",
   "keywords": [
     "php",
